@@ -1,0 +1,23 @@
+server:
+  port: 5000
+
+spring:
+  application:
+    name: api--lab-kafka
+
+  kafka:
+    bootstrap-servers: b-2.demo-cluster-1.hkgzxj.c21.kafka.us-east-1.amazonaws.com:9094,b-1.demo-cluster-1.hkgzxj.c21.kafka.us-east-1.amazonaws.com:9094,b-3.demo-cluster-1.hkgzxj.c21.kafka.us-east-1.amazonaws.com:9094
+    # bootstrap-servers: 127.0.0.1:9092
+    streams:
+      replication-factor: 1
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      # value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+    message:
+      topic: topic.test
+
+auto:
+  create:
+    topics:
+      enable: true
